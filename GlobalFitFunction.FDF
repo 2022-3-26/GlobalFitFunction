@@ -1,0 +1,134 @@
+﻿
+
+[General Information]
+Function Name = GlobalFitFunction
+Brief Description = 
+Function Source = N/A
+Number Of Parameters = 25
+Function Type = User-Defined
+Function Form = Equations
+Path = 
+Number Of Independent Variables = 1
+Number Of Dependent Variables = 1
+Category = User Defined
+Function Model = Explicit
+
+
+[Fitting Parameters]
+Names = s1,s2,s3,k1,k2,k3,A1,A2,A3,B1,B2,B3,f1,f2,c,d11,d12,d13,d15,d24,d26,d31,d32,d33,d35
+Initial Values = 0(F),0(F),0(F),0(F),0(F),0(F),4969.7(F),7234.1(F),6058(F),5237.3(F),4633.8(F),6063.7(F),0(F),120(F),3(F),1(F),0.27(F),0.14(F),0.34(F),0.51(F),0.13(F),-0.41(F),-0.55(F),-0.18(F),-0.15(F)
+Meanings = On/Off,On/Off,On/Off,On/Off,On/Off,On/Off,Amplifier,Amplifier,Amplifier,Amplifier,Amplifier,Amplifier,φ1,φ2,PhaseCompensator,χ11,χ12,χ13,χ15,χ24,χ26,χ31,χ32,χ33,χ35
+Lower Bounds = --(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off)
+Upper Bounds = --(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off),--(I, Off)
+Naming Method = User-Defined
+Number Of Significant Digits = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Unit = ,,,,,,,,,,,,,,,,,,,,,,,,
+Format = --,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--
+CustomDisplay = --,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--,--
+
+
+[Independent Variables]
+x = 
+
+
+[Dependent Variables]
+y = 
+
+
+[Formula]
+Px1 = d31*(cos(f1/180*pi)*sin((x-c)/180*pi))^2+d32*(sin(f1/180*pi)*sin((x-c)/180*pi))^2+d33*(cos((x-c)/180*pi))^2+2*d35*(cos(f1/180*pi)*sin((x-c)/180*pi))*(cos((x-c)/180*pi))
+Py1 = cos(f1/180*pi)*(d11*(cos(f1/180*pi)*sin((x-c)/180*pi))^2+d12*(sin(f1/180*pi)*sin((x-c)/180*pi))^2+d13*(cos((x-c)/180*pi))^2+2*d15*(cos(f1/180*pi)*sin((x-c)/180*pi))*(cos((x-c)/180*pi)))+sin(f1/180*pi)*(d24*2*sin(f1/180*pi)*sin((x-c)/180*pi)*(cos((x-c)/180*pi))+d26*2*(cos(f1/180*pi)*sin((x-c)/180*pi))*(sin(f1/180*pi)*sin((x-c)/180*pi)))
+PP1 = Px1*cos(((x-c)/180*pi))-Py1*sin(((x-c)/180*pi))
+PC1 = Px1*sin(((x-c)/180*pi))+Py1*cos(((x-c)/180*pi))
+
+Px2 = d31*(cos(f2/180*pi)*sin((x-c)/180*pi))^2+d32*(sin(f2/180*pi)*sin((x-c)/180*pi))^2+d33*(cos((x-c)/180*pi))^2+2*d35*(cos(f2/180*pi)*sin((x-c)/180*pi))*(cos((x-c)/180*pi))
+Py2 = cos(f2/180*pi)*(d11*(cos(f2/180*pi)*sin((x-c)/180*pi))^2+d12*(sin(f2/180*pi)*sin((x-c)/180*pi))^2+d13*(cos((x-c)/180*pi))^2+2*d15*(cos(f2/180*pi)*sin((x-c)/180*pi))*(cos((x-c)/180*pi)))+sin(f2/180*pi)*(d24*2*sin(f2/180*pi)*sin((x-c)/180*pi)*(cos((x-c)/180*pi))+d26*2*(cos(f2/180*pi)*sin((x-c)/180*pi))*(sin(f2/180*pi)*sin((x-c)/180*pi)))
+PP2 = Px2*cos(((x-c)/180*pi))-Py2*sin(((x-c)/180*pi))
+PC2 = Px2*sin(((x-c)/180*pi))+Py2*cos(((x-c)/180*pi))
+
+y = s1*A1*(PP1)^2+s2*A2*(PC1)^2+s3*(A3*((PP1)^2+(PC1)^2))+k1*B1*(PP2)^2+k2*B2*(PC2)^2+k3*(B3*((PP2)^2+(PC2)^2))
+
+
+[Constraints]
+
+
+[Initializations]
+
+
+[After Fitting]
+
+
+[Constants]
+
+
+[Controls]
+General Linear Constraints = 0
+Initialization Scripts = 0
+Scripts After Fitting = 0
+Number Of Duplicates = N/A
+Duplicate Offset = N/A
+Duplicate Unit = N/A
+Generate Curves After Fitting = 1
+Curve Point Spacing = Uniform on X-Axis Scale
+Generate Peaks After Fitting = 1
+Generate Peaks During Fitting = 1
+Generate Peaks with Baseline = 1
+Paste Parameters to Plot After Fitting = 1
+Paste Parameters to Notes Window After Fitting = 1
+Generate Residuals After Fitting = 0
+Keep Parameters = 0
+Compile On Param Change Script = 1
+Enable Parameters Initialization = 1
+Treat All Numbers As Double = 1
+Use Initial Formula = 1
+AllowInitializingFixedParameters = 0
+
+
+[Compile Function]
+Compile = 0
+Compile Parameters Initialization = 1
+OnParamChangeScriptsEnabled = 0
+
+
+[Parameters Initialization]
+
+
+[Origin C Function Header]
+
+
+[Origin C Parameter Initialization Header]
+
+
+[Derived Parameter Settings]
+Unit = 
+Names = 
+Meanings = 
+
+
+[QuickCheck]
+x=1
+s1=0
+s2=0
+s3=0
+k1=0
+k2=0
+k3=0
+A1=4969.7
+A2=7234.1
+A3=6058
+B1=5237.3
+B2=4633.8
+B3=6063.7
+f1=0
+f2=120
+c=3
+d11=1
+d12=0.27
+d13=0.14
+d15=0.34
+d24=0.51
+d26=0.13
+d31=-0.41
+d32=-0.55
+d33=-0.18
+d35=-0.15
